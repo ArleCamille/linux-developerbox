@@ -34,6 +34,16 @@ config NOUVEAU_LEGACY_CTX_SUPPORT
 	  old nouveau ddx this should be on by default, but modern distros
 	  should consider turning it off.
 
+config NOUVEAU_FIX_DEVELOPERBOX
+	bool "Fix screen issue on Socionext Developerbox"
+	depends on DRM_NOUVEAU
+	default n
+	help
+	  Developerbox does not support the behavior that recent NVIDIA
+	  graphics cards exhibit, which clashes with the default
+	  behaviour of Nouveau DRM driver. You can safely turn this off
+	  on normal systems.
+
 config NOUVEAU_PLATFORM_DRIVER
 	bool "Nouveau (NVIDIA) SoC GPUs"
 	depends on DRM_NOUVEAU && ARCH_TEGRA
